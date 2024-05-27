@@ -1,0 +1,94 @@
+@import 'reset.scss';
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+.stopwatch {
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-size: 12vw;
+}
+
+.timer {
+    margin-bottom: 1rem;
+    font-family: monospace, 'Orbitron', sans-serif;
+    font-weight: 700;
+
+    &.active {
+        animation: paulsing 2s infinite;
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 5vw;
+    cursor: pointer;
+
+    &.start {
+        background-color: rgb(0, 140, 0);
+        color: white;
+    }
+
+    &.stop {
+        background-color: rgb(191, 5, 5);
+        color: white;
+    }
+
+    &.reset {
+        background-color: rgb(238, 238, 73);
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+@keyframes paulsing {
+    0% {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    50% {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    100% {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+.reset.animate {
+    animation: paulsing 1s ease-in-out infinite;
+}
